@@ -1,29 +1,22 @@
 //
-//  ViewController.swift
+//  SignupViewController.swift
 //  Shanti - Mental Health App
 //
-//  Created by Jahnavi Bavuluri  on 7/8/20.
+//  Created by Jahnavi Bavuluri  on 7/18/20.
 //  Copyright © 2020 Jahnavi Bavuluri . All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class SignupViewController: UIViewController {
 
-    
-    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .darkContent
-    }
+    @IBOutlet weak var emailField: UITextField!
     
+    @IBOutlet weak var mainView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        usernameField.delegate = self
-        passwordField.delegate = self
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
@@ -34,15 +27,13 @@ class ViewController: UIViewController {
         var shouldAutorotate: Bool {
             return false
         }
-
-
+        
     }
     
-    
-    @IBAction func loginUser(_ sender: Any) {
-        let Url = String(format: "http://127.0.0.1:5000/login")
+    @IBAction func signupButton(_ sender: Any) {
+        let Url = String(format: "http://127.0.0.1:5000/signup")
         guard let serviceUrl = URL(string: Url) else { return }
-        let parameterDictionary = ["username" : usernameField.text!, "password" : passwordField.text!]
+        let parameterDictionary = ["username" : usernameField.text!, "password" : passwordField.text!, "email": emailField.text!]
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "POST"
         request.setValue("Application/json", forHTTPHeaderField: "Content-Type")
@@ -57,51 +48,37 @@ class ViewController: UIViewController {
                 print(response)
             }
             if let data = data {
-                let json = String(data: data, encoding: .utf8)!
+            let json = String(data: data, encoding: .utf8)!
                 print(json)
-                if (json=="invalid password") {
+                if (json=="user or email exists") {
                     OperationQueue.main.addOperation {
-                        let alert = UIAlertController(title: "Invalid Password", message: "Your password is not valid!", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                        self.present(alert, animated: true)
-                    }
-                } else if (json=="no user") {
-                   OperationQueue.main.addOperation {
-                        let alert = UIAlertController(title: "No User Found", message: "Either you have entered in the wrong username or we do not have an account under that name.", preferredStyle: .alert)
+                        let alert = UIAlertController(title: "Oops!", message: "Looks like that email or username already exists!", preferredStyle: .alert)
                         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
                         self.present(alert, animated: true)
                     }
                 } else {
                     OperationQueue.main.addOperation {
-                        self.performSegue(withIdentifier: "welcomeSegue", sender: self)
+                        self.performSegue(withIdentifier: "signinWelcome", sender: self)
                     }
                 }
             }
-            }.resume()
-        }
+        }.resume()
+    }
     
     
-    @IBAction func signupButton(_ sender: Any) {
-        performSegue(withIdentifier: "signinSegue", sender: self)
+    @IBAction func backtoLogin(_ sender: Any) {
+        performSegue(withIdentifier: "backtoLogin", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "welcomeSegue" {
-            var vc = segue.destination as! UITabBarController
+        if segue.identifier == "signinWelcome" {
+            var vc = segue.destination as! RecentstatViewController
         }
-        
-        if segue.identifier == "signinSegue" {
-            var vc = segue.destination as! SignupViewController
+        if segue.identifier == "backtoLogin" {
+            var vc = segue.destination as! ViewController
         }
-       
     }
     
     }
+    
 
-
-extension ViewController : UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-}

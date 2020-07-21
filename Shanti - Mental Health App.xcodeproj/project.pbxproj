@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,11 @@
 		A5197F8824B58A5200B29E25 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5197F8624B58A5200B29E25 /* Main.storyboard */; };
 		A5197F8A24B58A5300B29E25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5197F8924B58A5300B29E25 /* Assets.xcassets */; };
 		A5197F8D24B58A5300B29E25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5197F8B24B58A5300B29E25 /* LaunchScreen.storyboard */; };
+		A51F78A524C3792D0000B42A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F78A424C3792D0000B42A /* HomeViewController.swift */; };
+		A51F78A724C396CE0000B42A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51F78A624C396CD0000B42A /* SignupViewController.swift */; };
+		A56B248B24C7810600CFA7EC /* progressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56B248A24C7810500CFA7EC /* progressViewController.swift */; };
+		A5CCECD724C53D0E00E9A338 /* RecentstatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CCECD624C53D0E00E9A338 /* RecentstatViewController.swift */; };
+		A5CCECE524C5696300E9A338 /* progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5CCECE424C5696300E9A338 /* progress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		A5197F8924B58A5300B29E25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5197F8C24B58A5300B29E25 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5197F8E24B58A5300B29E25 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A51F78A424C3792D0000B42A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A51F78A624C396CD0000B42A /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		A56B248A24C7810500CFA7EC /* progressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progressViewController.swift; sourceTree = "<group>"; };
+		A5CCECD624C53D0E00E9A338 /* RecentstatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentstatViewController.swift; sourceTree = "<group>"; };
+		A5CCECE424C5696300E9A338 /* progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = progress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +69,11 @@
 				A5197F8024B58A5200B29E25 /* AppDelegate.swift */,
 				A5197F8224B58A5200B29E25 /* SceneDelegate.swift */,
 				A5197F8424B58A5200B29E25 /* ViewController.swift */,
+				A51F78A624C396CD0000B42A /* SignupViewController.swift */,
+				A51F78A424C3792D0000B42A /* HomeViewController.swift */,
+				A5CCECD624C53D0E00E9A338 /* RecentstatViewController.swift */,
+				A56B248A24C7810500CFA7EC /* progressViewController.swift */,
+				A5CCECE424C5696300E9A338 /* progress.swift */,
 				A5197F8624B58A5200B29E25 /* Main.storyboard */,
 				A5197F8924B58A5300B29E25 /* Assets.xcassets */,
 				A5197F8B24B58A5300B29E25 /* LaunchScreen.storyboard */,
@@ -139,8 +154,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5197F8524B58A5200B29E25 /* ViewController.swift in Sources */,
+				A5CCECD724C53D0E00E9A338 /* RecentstatViewController.swift in Sources */,
 				A5197F8124B58A5200B29E25 /* AppDelegate.swift in Sources */,
+				A56B248B24C7810600CFA7EC /* progressViewController.swift in Sources */,
+				A51F78A724C396CE0000B42A /* SignupViewController.swift in Sources */,
+				A5CCECE524C5696300E9A338 /* progress.swift in Sources */,
 				A5197F8324B58A5200B29E25 /* SceneDelegate.swift in Sources */,
+				A51F78A524C3792D0000B42A /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +305,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CDX6HZGD22;
 				INFOPLIST_FILE = "Shanti - Mental Health App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +323,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CDX6HZGD22;
 				INFOPLIST_FILE = "Shanti - Mental Health App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
